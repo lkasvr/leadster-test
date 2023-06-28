@@ -19,4 +19,4 @@ Teste Leadster: Construção de uma landing page para processo seletivo
 * Lon - Inserção/Edição de lógica negocial
 * Loi - Inserção/Edição de lógica de interface
 * CMO - Edição genérica do código com explicitação obrigatória do motivo/explicação
-* Ret - Retificação e aperfeiçoamento ou pequenas e genéricas de código sem modificação de lógicas
+* Ret - Retificação e aperfeiçoamento ou pequenas e genéricas edições de código sem modificação de lógicas
