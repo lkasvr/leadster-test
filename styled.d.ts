@@ -13,6 +13,7 @@ declare module 'styled-components' {
       primary: colors;
       secondary: colors;
       gray: colors;
+      black: colors;
     };
   }
 }

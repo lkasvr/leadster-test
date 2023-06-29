@@ -4,8 +4,9 @@ const Banner = styled.section`
   background-color: ${(props) => props.theme.palette.secondary.main};
   height: 50vh;
   width: 100%;
+  padding: 1rem;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   gap: 0.25rem;
@@ -50,16 +51,6 @@ export const Title = styled.h1`
 
 export const SubTitle = styled.span`
   font-size: 3rem;
-`;
-
-export const Divider = styled.hr`
-  border: none;
-  border-top: 2px solid ${(props) => props.theme.palette.gray.main};
-  border-radius: 4px;
-  text-align: center;
-  width: 42%;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
 `;
 
 export const CatchPhrase = styled.p`

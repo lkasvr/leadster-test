@@ -2,9 +2,11 @@
 
 import Image from 'next/image';
 
-import Banner, { Tag, Title, SubTitle, Divider, CatchPhrase } from './styles';
+import Banner, { Tag, Title, SubTitle, CatchPhrase } from './styles';
 
-const index = () => {
+import Divider from '@/elements/Divider';
+
+const Index = () => {
   return (
     <Banner>
       <Tag>WEBINARS EXCLUSIVOS</Tag>
@@ -18,7 +20,7 @@ const index = () => {
           alt="Raios saindo da letra O"
         />
       </Title>
-      <Divider />
+      <Divider $width="42%" $mt="0.5rem" $mb="0.5rem" />
       <CatchPhrase>
         Conheça as estratégias que <b>mudaram o jogo</b> e como aplicá-las no
         seu negócio
@@ -27,4 +29,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import Header from './styles';
 
-const index = () => {
+const Index = () => {
   return (
     <Header>
       <Image
@@ -17,4 +17,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

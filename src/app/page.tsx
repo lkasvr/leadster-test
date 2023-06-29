@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 
 import Banner from '@/components/Banner';
 import Header from '@/components/Header';
+import Main from '@/components/Main';
 import { GlobalStyle, Theme } from '@/libs/styled-components/clientOnly';
 
 const theme = {
@@ -22,6 +23,11 @@ const theme = {
       main: '#d5dbde',
       dark: '#95999b',
     },
+    black: {
+      light: '#1c3c50',
+      main: '#333333',
+      dark: '#000',
+    },
   },
 };
 
@@ -32,6 +38,7 @@ export default function MainPAge() {
       <Theme theme={theme}>
         <Header />
         <Banner />
+        <Main />
       </Theme>
     </Fragment>
   );
