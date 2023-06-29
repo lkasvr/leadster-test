@@ -8,6 +8,7 @@ type colors = {
 
 declare module 'styled-components' {
   export interface DefaultTheme {
+    bg: string;
     palette: {
       primary: colors;
       secondary: colors;
