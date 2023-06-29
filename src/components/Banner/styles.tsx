@@ -1,8 +1,8 @@
 import { styled } from 'styled-components';
 
 const Banner = styled.section`
-  background-color: #f0f8ff;
-  margin: 0 auto;
+  background-color: ${(props) => props.theme.palette.secondary.main};
+  margin: 0;
   height: 50vh;
   width: 100vw;
   display: flex;
@@ -17,7 +17,7 @@ export const Title = styled.h1`
   font-size: 4rem;
   background: -webkit-linear-gradient(
     45deg,
-    ${(props) => props.theme.palette.primary.light} 0%,
+    ${(props) => props.theme.palette.primary.main} 0%,
     ${(props) => props.theme.palette.primary.dark} 100%
   );
   background-clip: text;
@@ -31,7 +31,7 @@ export const SubTitle = styled.span`
 
 export const Divider = styled.hr`
   border: none;
-  border-top: 2px solid #d5dbde;
+  border-top: 2px solid ${(props) => props.theme.palette.gray.main};
   border-radius: 4px;
   text-align: center;
   width: 30%;

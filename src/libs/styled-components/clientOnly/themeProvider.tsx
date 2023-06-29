@@ -1,4 +1,3 @@
-'use client';
 import { ThemeProvider, DefaultTheme } from 'styled-components';
 
 interface ITheme {
