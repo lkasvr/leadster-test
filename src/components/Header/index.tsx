@@ -1,14 +1,7 @@
 'use client';
 import Image from 'next/image';
 
-import { styled } from 'styled-components';
-
-const Header = styled.header`
-  height: 10vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+import Header from './styles';
 
 const index = () => {
   return (
