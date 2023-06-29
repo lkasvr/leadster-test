@@ -1,6 +1,9 @@
 'use client';
+import { useMemo, useState } from 'react';
+
 import Image from 'next/image';
 
+import Pagination from '../Pagination';
 import videoMockup from './mockup.json';
 import Main, {
   HeaderElement,
@@ -8,6 +11,8 @@ import Main, {
   Select,
   DropdownItem,
   Thumb,
+  ThumbFilter,
+  ThumbDesc,
 } from './styles';
 
 import Button from '@/elements/Button';
@@ -15,8 +20,18 @@ import Divider from '@/elements/Divider';
 import Wrapper from '@/elements/Wrapper';
 import { useTheme } from 'styled-components';
 
+const pageSize = 9;
+
 const Index = () => {
   const theme = useTheme();
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const currentVideoData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * pageSize;
+    const lastPageIndex = firstPageIndex + pageSize;
+    return videoMockup.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage]);
 
   return (
     <Main>
@@ -85,21 +100,23 @@ const Index = () => {
       </HeaderElement>
       <Wrapper
         $width="50%"
-        $flexFlow="row nowrap"
+        $flexFlow="row wrap"
         $justifyContent="space-between"
         $alignItems="center"
       >
-        {videoMockup.map(({ id, title, imgSrc }) => (
-          <Thumb key={id}>
-            <Image
-              src={imgSrc}
-              alt="MArketing 2024, e busto de um homem loiro "
-              width={362}
-              height={204}
-            />
-            <p>{title}</p>
+        {currentVideoData.map(({ id, title, img }) => (
+          <Thumb key={id} $width={`${300}px`} $height={`${154}px`}>
+            <Image src={img.src} alt={img.alt} width={300} height={154} />
+            <ThumbFilter />
+            <ThumbDesc>{title}</ThumbDesc>
           </Thumb>
         ))}
+        <Pagination
+          currentPage={currentPage}
+          totalCount={videoMockup.length}
+          pageSize={pageSize}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
       </Wrapper>
     </Main>
   );
