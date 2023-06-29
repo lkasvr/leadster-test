@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 const Banner = styled.section`
   background-color: #f0f8ff;
   margin: 0 auto;
-  height: 60vh;
+  height: 50vh;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -13,12 +13,12 @@ const Banner = styled.section`
 
 export const Title = styled.h1`
   margin: 0 auto;
-  color: rgb(44, 131, 251);
+  color: ${(props) => props.theme.palette.primary.light};
   font-size: 4rem;
   background: -webkit-linear-gradient(
     45deg,
-    rgba(44, 131, 251, 1) 0%,
-    rgba(31, 118, 240, 1) 100%
+    ${(props) => props.theme.palette.primary.light} 0%,
+    ${(props) => props.theme.palette.primary.dark} 100%
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -27,6 +27,14 @@ export const Title = styled.h1`
 
 export const SubTitle = styled.span`
   font-size: 2rem;
+`;
+
+export const Divider = styled.hr`
+  border: none;
+  border-top: 2px solid #d5dbde;
+  border-radius: 4px;
+  text-align: center;
+  width: 30%;
 `;
 
 export default Banner;
