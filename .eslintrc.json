@@ -49,11 +49,15 @@
           ],
           "/module/",
           "/^@shared/",
+          "/absolute/",
+          [
+            "/^@libs/",
+            "/^libs/"
+          ],
           [
             "/^components/",
             "/^@components/"
           ],
-          "/absolute/",
           [
             "parent",
             "sibling",
