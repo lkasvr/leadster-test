@@ -32,6 +32,16 @@ const theme = {
       main: '#333333',
       dark: '#000',
     },
+    yellow: {
+      light: '#fff8d0',
+      main: '#F9D949',
+      dark: '#d2bd5b',
+    },
+    green: {
+      light: '#1c3c50',
+      main: '#9fefdf',
+      dark: '#09be97',
+    },
   },
 };
 

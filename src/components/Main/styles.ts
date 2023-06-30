@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import hexToRgba from 'hex-to-rgba';
 import { styled } from 'styled-components';
 
 const Main = styled.main`
@@ -105,6 +106,81 @@ export const ThumbDesc = styled.p`
   width: 100%;
   font-size: 0.95rem;
   font-weight: bold;
+`;
+
+export const VideoTitle = styled.h3`
+  border-radius: 10px;
+  border-top: 5px solid ${({ theme }) => theme.palette.primary.main};
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  padding: 11% 20% 0 20%;
+  font-weight: 600;
+
+  > span {
+    color: ${({ theme }) => theme.palette.primary.main};
+  }
+`;
+
+export const ContentVideoContainer = styled.section`
+  padding: 0 5% 1% 5%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+`;
+
+export const ContentVideoWrapper = styled.aside`
+  width: 100%;
+
+  > h4 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  > p {
+    font-size: 0.85rem;
+  }
+
+  > div {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+  }
+`;
+
+export const MaterialWithVideo = styled.div<{ $color: string }>`
+  width: 30%;
+  display: flex;
+  flex-flow: row nowrap;
+
+  > div {
+    padding: 0.2rem;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${({ $color }) => hexToRgba($color, 0.5)};
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  div ~ aside {
+    padding: 0.2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${({ $color }) => hexToRgba($color, 0.25)};
+    font-size: 0.75rem;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    > span {
+      color: ${({ $color }) => hexToRgba($color, 1)};
+    }
+  }
 `;
 
 export default Main;

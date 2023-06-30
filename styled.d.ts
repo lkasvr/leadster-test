@@ -14,6 +14,8 @@ declare module 'styled-components' {
       secondary: colors;
       gray: colors;
       black: colors;
+      yellow: colors;
+      green: colors;
     };
   }
 }
