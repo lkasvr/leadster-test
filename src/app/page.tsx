@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 
 import Banner from '@/components/Banner';
+import FooterBanner from '@/components/FooterBanner';
 import Header from '@/components/Header';
 import Main from '@/components/Main';
 import {
@@ -54,6 +55,7 @@ export default function MainPAge() {
           <Header />
           <Banner />
           <Main />
+          <FooterBanner />
         </GlobalModal>
       </Theme>
     </Fragment>

@@ -4,7 +4,7 @@ interface IButton {
   $bg: string;
   $color: string;
   $width?: string;
-  $hoverColor: string;
+  $hoverColor?: string;
   $active?: boolean;
 }
 

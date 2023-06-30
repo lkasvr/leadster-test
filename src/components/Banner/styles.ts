@@ -51,6 +51,7 @@ export const Title = styled.h1`
 
 export const SubTitle = styled.span`
   font-size: 3rem;
+  color: ${({ theme }) => theme.palette.black.light};
 `;
 
 export const CatchPhrase = styled.p`
