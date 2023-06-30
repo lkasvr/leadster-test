@@ -1,9 +1,11 @@
 'use client';
-import Pagination, { PaginationItem, Arrow } from './styles';
+import Pagination, { PaginationItem, Arrow, Label } from './styles';
 
 import { usePagination, IUsePagination } from '@/customHooks/usePagination';
 
 interface IPagination extends IUsePagination {
+  label?: string;
+  arrows?: boolean;
   onPageChange: (pageToGo: number) => void;
 }
 
@@ -13,6 +15,8 @@ const Index = ({
   pageSize,
   onPageChange,
   siblingCount,
+  arrows = true,
+  label,
 }: IPagination) => {
   const paginationRange = usePagination({
     currentPage,
@@ -31,12 +35,11 @@ const Index = ({
 
   return (
     <Pagination>
-      {/* Seta de navegação da esquerda */}
+      {label ? <Label>{label}</Label> : ''}
       <PaginationItem $disabled={currentPage === 1} onClick={onPrevious}>
-        <Arrow $position="left" />
+        {arrows ? <Arrow $position="left" /> : ''}
       </PaginationItem>
       {paginationRange.map((pageNumber) => {
-        // Se o pageItem for um PONTO (DOT), renderize o caractere unicode DOTS
         if (pageNumber === -1) {
           return (
             <PaginationItem key={pageNumber} $dots={true}>
@@ -57,7 +60,7 @@ const Index = ({
       })}
       {/*  Seta de navegação da direita */}
       <PaginationItem $disabled={currentPage === lastPage} onClick={onNext}>
-        <Arrow $position="right" />
+        {arrows ? <Arrow $position="right" /> : ''}
       </PaginationItem>
     </Pagination>
   );

@@ -12,11 +12,13 @@ import Main, {
   DropdownItem,
   Thumb,
   ThumbFilter,
+  PlayThumbnail,
   ThumbDesc,
 } from './styles';
 
 import Button from '@/elements/Button';
 import Divider from '@/elements/Divider';
+import Modal from '@/elements/Modal';
 import Wrapper from '@/elements/Wrapper';
 import { useTheme } from 'styled-components';
 
@@ -26,6 +28,15 @@ const Index = () => {
   const theme = useTheme();
 
   const [currentPage, setCurrentPage] = useState(1);
+  const [currentTab, setCurrentTab] = useState<string>('Geração de Leads');
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [opacity, setOpacity] = useState(0);
+
+  const toggleModal = () => {
+    setOpacity(0);
+    setIsOpen(!isOpen);
+  };
 
   const currentVideoData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * pageSize;
@@ -46,6 +57,8 @@ const Index = () => {
             $bg="transparent"
             $color={theme.palette.black.light}
             $hoverColor={theme.palette.primary.main}
+            $active={currentTab === 'Agências'}
+            onClick={() => setCurrentTab('Agências')}
           >
             Agências
           </Button>
@@ -54,6 +67,8 @@ const Index = () => {
             $bg="transparent"
             $color={theme.palette.black.light}
             $hoverColor={theme.palette.primary.main}
+            $active={currentTab === 'Chatbot'}
+            onClick={() => setCurrentTab('Chatbot')}
           >
             Chatbot
           </Button>
@@ -62,6 +77,8 @@ const Index = () => {
             $bg="transparent"
             $color={theme.palette.black.light}
             $hoverColor={theme.palette.primary.main}
+            $active={currentTab === 'Marketing Digital'}
+            onClick={() => setCurrentTab('Marketing Digital')}
           >
             Marketing Digital
           </Button>
@@ -70,6 +87,8 @@ const Index = () => {
             $bg="transparent"
             $color={theme.palette.black.light}
             $hoverColor={theme.palette.primary.main}
+            $active={currentTab === 'Geração de Leads'}
+            onClick={() => setCurrentTab('Geração de Leads')}
           >
             Geração de Leads
           </Button>
@@ -78,6 +97,8 @@ const Index = () => {
             $bg="transparent"
             $color={theme.palette.black.light}
             $hoverColor={theme.palette.primary.main}
+            $active={currentTab === 'Mídia Paga'}
+            onClick={() => setCurrentTab('Mídia Paga')}
           >
             Mídia Paga
           </Button>
@@ -105,19 +126,40 @@ const Index = () => {
         $alignItems="center"
       >
         {currentVideoData.map(({ id, title, img }) => (
-          <Thumb key={id} $width={`${300}px`} $height={`${154}px`}>
+          <Thumb
+            key={id}
+            $width={`${300}px`}
+            $height={`${154}px`}
+            onClick={toggleModal}
+          >
             <Image src={img.src} alt={img.alt} width={300} height={154} />
             <ThumbFilter />
-            <ThumbDesc>{title}</ThumbDesc>
+            <PlayThumbnail
+              src="/play-thumbnail.svg"
+              alt="Thumbnail do botão play"
+              width={140}
+              height={67}
+            />
+            <ThumbDesc>
+              {title} - {id}
+            </ThumbDesc>
           </Thumb>
         ))}
         <Pagination
+          label="Página"
           currentPage={currentPage}
           totalCount={videoMockup.length}
           pageSize={pageSize}
           onPageChange={(page) => setCurrentPage(page)}
+          arrows={false}
         />
       </Wrapper>
+      <Modal
+        toggleModal={toggleModal}
+        isOpen={isOpen}
+        opacity={opacity}
+        content={'olá mundo'}
+      />
     </Main>
   );
 };

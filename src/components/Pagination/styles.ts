@@ -8,8 +8,11 @@ interface IPaginationItem {
 
 const Pagination = styled.ul`
   width: 100%;
-  display: flex;
   list-style-type: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const PaginationItem = styled.li<IPaginationItem>`
@@ -18,17 +21,18 @@ export const PaginationItem = styled.li<IPaginationItem>`
   text-align: center;
   margin: auto 4px;
   margin-bottom: 1rem;
-  color: rgba(0, 0, 0, 0.87);
+  color: ${({ theme }) => theme.palette.black.main};
   display: flex;
-  box-sizing: border-box;
   align-items: center;
+  box-sizing: border-box;
   letter-spacing: 0.01071em;
-  border-radius: 16px;
+  border-radius: 6px;
   line-height: 1.43;
-  font-size: 13px;
+  font-size: 1rem;
+  font-weight: 700;
   min-width: 32px;
 
-  ${({ $dots, $disabled }) => {
+  ${({ $dots, $disabled, theme }) => {
     if ($dots) {
       return `
   &:hover {
@@ -39,13 +43,19 @@ export const PaginationItem = styled.li<IPaginationItem>`
     } else if (!$disabled) {
       return `
   &:hover {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: ${theme.palette.primary.main};
+    color: white;
     cursor: pointer;
   }`;
     }
   }};
 
-  ${({ $selected }) => $selected && 'background-color: rgba(0, 0, 0, 0.08);'}
+  ${({ $selected, theme }) =>
+    $selected &&
+    `
+    background-color: transparent;
+    border: 1px solid ${theme.palette.primary.main};
+  `}
 
   ${({ $disabled }) =>
     $disabled &&
@@ -62,6 +72,14 @@ export const PaginationItem = styled.li<IPaginationItem>`
       cursor: default;
     }
   `}
+`;
+
+export const Label = styled.span`
+  position: absolute;
+  margin-bottom: 1.25rem;
+  margin-right: 14rem;
+  font-size: 1rem;
+  font-weight: 600;
 `;
 
 export const Arrow = styled.div<{ $position: 'left' | 'right' }>`

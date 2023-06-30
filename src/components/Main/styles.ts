@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import { styled } from 'styled-components';
 
 const Main = styled.main`
@@ -45,6 +47,10 @@ export const ThumbFilter = styled.div`
   opacity: 0.25;
 `;
 
+export const PlayThumbnail = styled(Image)`
+  display: none;
+`;
+
 export const Thumb = styled.article<{ $width: string; $height: string }>`
   padding-bottom: 0.5rem;
   margin-bottom: 1.25rem;
@@ -71,9 +77,17 @@ export const Thumb = styled.article<{ $width: string; $height: string }>`
 
     ${ThumbFilter} {
       display: flex;
-      background-color: ${({ theme }) => theme.palette.primary.light};
+      justify-content: center;
+      align-items: center;
+      background-color: ${({ theme }) => theme.palette.primary.main};
       width: ${({ $width }) => $width};
       height: ${({ $height }) => $height};
+    }
+
+    ${PlayThumbnail} {
+      position: absolute;
+      display: flex;
+      margin-bottom: 4.25rem;
     }
   }
 

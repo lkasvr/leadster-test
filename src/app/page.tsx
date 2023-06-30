@@ -3,7 +3,11 @@ import { Fragment } from 'react';
 import Banner from '@/components/Banner';
 import Header from '@/components/Header';
 import Main from '@/components/Main';
-import { GlobalStyle, Theme } from '@/libs/styled-components/clientOnly';
+import {
+  GlobalStyle,
+  GlobalModal,
+  Theme,
+} from '@/libs/styled-components/clientOnly';
 
 const theme = {
   bg: 'white',
@@ -36,9 +40,11 @@ export default function MainPAge() {
     <Fragment>
       <GlobalStyle />
       <Theme theme={theme}>
-        <Header />
-        <Banner />
-        <Main />
+        <GlobalModal>
+          <Header />
+          <Banner />
+          <Main />
+        </GlobalModal>
       </Theme>
     </Fragment>
   );

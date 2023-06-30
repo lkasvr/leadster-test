@@ -5,6 +5,7 @@ interface IButton {
   $color: string;
   $width?: string;
   $hoverColor: string;
+  $active?: boolean;
 }
 
 const Button = styled.button<IButton>`
@@ -21,10 +22,25 @@ const Button = styled.button<IButton>`
   font-weight: 500;
   color: ${({ $color }) => $color};
 
-  &:hover {
-    border-color: ${({ $hoverColor }) => $hoverColor};
-    color: ${({ $hoverColor }) => $hoverColor};
-  }
+  ${({ $active, $hoverColor, theme }) => {
+    if (!$active) {
+      return `
+      &:hover {
+          border-color: ${$hoverColor};
+          color: ${$hoverColor};
+        }
+    `;
+    }
+
+    return (
+      $active &&
+      `
+    color: white;
+    border-color: ${theme.palette.primary.main};
+    background-color: ${theme.palette.primary.main};
+  `
+    );
+  }}
 `;
 
 export default Button;
