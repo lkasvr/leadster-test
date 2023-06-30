@@ -91,12 +91,13 @@ const Index = () => {
       </FooterMain>
       <FootNote>
         <p>
-          Copyright &copy; 2015 - 2022 Todos os direitos reservados |{' '}
+          Copyright &copy; 2015 - 2022 Todos os direitos
+          reservados&nbsp;&nbsp;|&nbsp;&nbsp;
           <span>Leadster</span>
         </p>
         <p>
-          Rua José Loureiro, 464 - Centro - Curitiba PR - CEP: 80010-00 | Termos
-          de uso
+          Rua José Loureiro, 464 - Centro - Curitiba PR - CEP:
+          80010-00&nbsp;&nbsp;|&nbsp;&nbsp;Termos de uso
         </p>
       </FootNote>
     </Footer>

@@ -67,7 +67,7 @@ const Index = () => {
               <b>Não</b> é necessário Cartão de Crédito
             </span>
           </div>
-          |
+          &nbsp;|&nbsp;
           <div>
             <Image
               src="/rating.webp"
