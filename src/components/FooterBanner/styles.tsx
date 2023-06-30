@@ -90,12 +90,15 @@ export const InfoContainer = styled.aside`
   align-items: center;
 
   div {
-    width: 42%;
+    width: 42.21%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
     margin-right: 0.5rem;
+
+    font-weight: 500;
+    color: ${({ theme }) => theme.palette.black.light};
 
     > span {
       margin-left: 0.5rem;
