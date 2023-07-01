@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('next').NextConfig} */
 const withPlugins = require('next-compose-plugins');
+const withFonts = require('next-fonts');
 const withTM = require('next-transpile-modules')();
 const nextConfig = {
   compiler: {
@@ -8,4 +10,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPlugins([withTM], nextConfig);
+module.exports = withPlugins([[withTM], [withFonts]], nextConfig);

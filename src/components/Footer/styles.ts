@@ -17,8 +17,9 @@ export const FooterHeader = styled.header`
   margin-bottom: 3rem;
 
   > p {
-    font-size: 0.8rem;
-    font-weight: 200;
+    font-size: 0.9rem;
+    font-weight: 100;
+    color: ${({ theme }) => theme.palette.gray.dark};
   }
 `;
 
