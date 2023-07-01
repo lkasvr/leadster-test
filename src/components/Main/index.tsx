@@ -76,7 +76,7 @@ const Index = () => {
   };
 
   return (
-    <FadeIn $delay="4.2s">
+    <FadeIn $delay="3.2s">
       <Main>
         <HeaderElement>
           <Wrapper
