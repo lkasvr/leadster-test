@@ -60,7 +60,10 @@ const Index = () => {
       {
         ref: animations.current[2],
         animation: BackInRight,
-        options: { duration: 800, delay: 1400 },
+        options: {
+          playState,
+          delay,
+        },
       },
       {
         ref: animations.current[3],
