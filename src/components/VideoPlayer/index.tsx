@@ -4,8 +4,8 @@ import ReactPlayer from 'react-player';
 
 interface IVideoPlayer {
   url: string;
-  width?: string;
-  height?: string;
+  width: string;
+  height: string;
 }
 
 const Index = ({ url, width, height }: IVideoPlayer) => {

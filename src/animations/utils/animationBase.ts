@@ -25,10 +25,7 @@ export const animateBase = (
     iterationCount,
     playState,
   } = options;
-  element.style.display = display ?? 'block';
 
-  // Lógica da animação programática aqui
-  // Exemplo: fade in
   element.style.opacity = '0';
 
   const animation = element.animate(keyframes, {

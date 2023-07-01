@@ -24,7 +24,7 @@ export const FooterHeader = styled.header`
 `;
 
 export const FooterMain = styled.main`
-  padding-left: 3rem;
+  padding-left: 15%;
   padding-right: 3rem;
   width: 100%;
   display: flex;
@@ -38,10 +38,8 @@ export const SectionMain = styled.section`
   flex-flow: column nowrap;
 
   > div {
-    width: 100%;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: flex-start;
     gap: 1.5rem;
   }
 

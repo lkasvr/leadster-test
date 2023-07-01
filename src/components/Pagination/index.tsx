@@ -16,7 +16,7 @@ const Index = ({
   onPageChange,
   siblingCount,
   arrows = true,
-  label,
+  label = '',
 }: IPagination) => {
   const paginationRange = usePagination({
     currentPage,

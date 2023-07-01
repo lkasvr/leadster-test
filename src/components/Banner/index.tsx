@@ -1,23 +1,27 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 
 import Image from 'next/image';
 
 import Banner, { Tag, Title, SubTitle, CatchPhrase } from './styles';
 
 import { FadeIn, BackInLeft } from '@/animations';
-import BaseAnimation from '@/animations/styles';
 import { animateBase } from '@/animations/utils/animationBase';
+import { useAnimationRef } from '@/customHooks/useAnimationRef';
 import Divider from '@/elements/Divider';
 
 const Index = () => {
-  const animations = useRef<HTMLDivElement[]>([]);
+  const tagRef = useAnimationRef<HTMLSpanElement>();
+  const subTitleRef = useAnimationRef<HTMLSpanElement>();
+  const titleRef = useAnimationRef<HTMLHeadingElement>();
+  const dividerRef = useAnimationRef<HTMLHRElement>();
+  const catchPhraseRef = useAnimationRef<HTMLParagraphElement>();
 
   useEffect(() => {
     const animationData = [
       {
-        ref: animations.current[0],
+        ref: tagRef,
         animation: FadeIn,
         options: {
           duration: 800,
@@ -25,64 +29,54 @@ const Index = () => {
         },
       },
       {
-        ref: animations.current[1],
+        ref: subTitleRef,
         animation: BackInLeft,
         options: { duration: 1000 },
       },
       {
-        ref: animations.current[2],
+        ref: titleRef,
         animation: BackInLeft,
         options: { duration: 800, delay: 1400 },
       },
       {
-        ref: animations.current[3],
+        ref: dividerRef,
         animation: FadeIn,
         options: { duration: 800, delay: 1000 * 3.2 },
       },
       {
-        ref: animations.current[4],
+        ref: catchPhraseRef,
         animation: BackInLeft,
         options: { duration: 1000, delay: 1000 * 2.2 },
       },
     ];
 
     animationData.forEach(({ ref, animation, options }) => {
-      animateBase(ref, options, animation);
+      animateBase(ref.current, options, animation);
     });
-  }, []);
+  }, [catchPhraseRef, dividerRef, subTitleRef, tagRef, titleRef]);
 
   return (
     <Banner>
-      <BaseAnimation ref={(el: HTMLDivElement) => (animations.current[0] = el)}>
-        <Tag>WEBINARS EXCLUSIVOS</Tag>
-      </BaseAnimation>
+      <Tag ref={tagRef}>WEBINARS EXCLUSIVOS</Tag>
 
-      <BaseAnimation ref={(el: HTMLDivElement) => (animations.current[1] = el)}>
-        <SubTitle>Menos Conversinha,</SubTitle>
-      </BaseAnimation>
+      <SubTitle ref={subTitleRef}>Menos Conversinha,</SubTitle>
 
-      <BaseAnimation ref={(el: HTMLDivElement) => (animations.current[2] = el)}>
-        <Title>
-          Mais Conversão
-          <Image
-            src="/asset-header.png"
-            width={49}
-            height={32}
-            alt="Raios saindo da letra O"
-          />
-        </Title>
-      </BaseAnimation>
+      <Title ref={titleRef}>
+        Mais Conversão
+        <Image
+          src="/asset-header.png"
+          width={49}
+          height={32}
+          alt="Raios saindo da letra O"
+        />
+      </Title>
 
-      <BaseAnimation ref={(el: HTMLDivElement) => (animations.current[3] = el)}>
-        <Divider $width="40vw" $mt="0.5rem" $mb="0.5rem" />
-      </BaseAnimation>
+      <Divider ref={dividerRef} $width="40%" $mt="0.5rem" $mb="0.5rem" />
 
-      <BaseAnimation ref={(el: HTMLDivElement) => (animations.current[4] = el)}>
-        <CatchPhrase>
-          Conheça as estratégias que <b>mudaram o jogo</b> e como aplicá-las no
-          seu negócio
-        </CatchPhrase>
-      </BaseAnimation>
+      <CatchPhrase ref={catchPhraseRef}>
+        Conheça as estratégias que <b>mudaram o jogo</b> e como aplicá-las no
+        seu negócio
+      </CatchPhrase>
     </Banner>
   );
 };

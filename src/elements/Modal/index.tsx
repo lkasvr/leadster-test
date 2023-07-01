@@ -7,11 +7,16 @@ import StyledModal, { CloseButton } from './styles';
 interface IModal {
   children: React.ReactNode | string;
   toggleModal: () => void;
-  opacity: number;
-  isOpen: boolean;
+  opacity?: number;
+  isOpen?: boolean;
 }
 
-const Index = ({ children, toggleModal, isOpen, opacity = 0 }: IModal) => {
+const Index = ({
+  children,
+  toggleModal,
+  isOpen = false,
+  opacity = 0,
+}: IModal) => {
   const [opt, setOpacity] = useState(opacity);
 
   const afterOpen = () => {
