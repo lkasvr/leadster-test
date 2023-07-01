@@ -1,5 +1,29 @@
-# Projeto: Leadster Test - Dev (Lucas Vieira)
-Teste Leadster: Construção de uma landing page para processo seletivo
+# **Projeto: Leadster Test - Dev (Lucas Vieira)**
+Teste Leadster: Construção de uma ***Landing Page*** para processo seletivo
+
+## Layout da Landing Page
+
+![Layout Landing Page Leadster](./public/Artboard.png)
+#
+![Layout Landing Page Leadster](./public/Artboard-Video.png)
+
+## Decisões Tomadas
+
+- Manipulação da lógica das animações via servidor next
+- Uso de uma lib de terceiro para o componente de Player de vídeo
+- E uso de uma lib de terceiro para o elememento modal
+- Distinção entre Componentes e Elementos
+- Uso de hooks personalizados
+
+</br>
+
+## Organização do Código
+
+- Os **componentes** decidi armazená-los em pastas com um arquivo tsx e um ts para os estilos
+- Os **elementos** também em pastas, mas apenas com o arquivo ts do styled-components
+- Nos componentes no topo deixei apenas as declarações de váriaveis de estado e outras váriaveis, abaixo deixei o hook de efeito colateral (useEffect), logo após outras funções de lógica de interface, e na última camada as arrow's functions de tratamento de eventos (handle functions)
+
+</br>
 
 ## Padrão de Commit's
 
