@@ -17,15 +17,19 @@ import BannerContainer, {
   InfoContainer,
 } from './styles';
 
+import { FadeIn, BackInRight, BackInLeft } from '@/animations';
+import BaseAnimation from '@/animations/styles';
+import { animateBase } from '@/animations/utils/animationBase';
 import { useOnScreen } from '@/customHooks/useOnScreen';
 import Divider from '@/elements/Divider';
-import { FadeIn, BackInRight, BackInLeft } from '@/styles/animations/index';
 import { useTheme } from 'styled-components';
 
 const Index = () => {
   const theme = useTheme();
 
+  const animations = useRef<HTMLDivElement[]>([]);
   const ref = useRef<HTMLElement>(null);
+
   const visible = useOnScreen(ref);
   const [playState, setPlayState] = useState<'paused' | 'running'>('paused');
   const [delay] = useState<number>(2);
@@ -35,40 +39,96 @@ const Index = () => {
     if (!visible) setPlayState('paused');
   }, [visible]);
 
+  useEffect(() => {
+    const animationData = [
+      {
+        ref: animations.current[0],
+        animation: BackInLeft,
+        options: {
+          playState,
+          delay,
+        },
+      },
+      {
+        ref: animations.current[1],
+        animation: BackInRight,
+        options: {
+          playState,
+          delay,
+        },
+      },
+      {
+        ref: animations.current[2],
+        animation: BackInRight,
+        options: { duration: 800, delay: 1400 },
+      },
+      {
+        ref: animations.current[3],
+        animation: FadeIn,
+        options: {
+          playState,
+          delay,
+        },
+      },
+      {
+        ref: animations.current[4],
+        animation: BackInRight,
+        options: {
+          playState,
+          delay,
+        },
+      },
+    ];
+
+    animationData.forEach(({ ref, animation, options }) => {
+      animateBase(ref, options, animation);
+    });
+  }, [playState, delay]);
+
   return (
     <BannerContainer ref={ref}>
       <TriangleImage src="/triangle-bg.png" width={1400} height={1200} alt="" />
       <CTAImageContainer>
-        <BackInLeft $delay={`${delay}s`} $playState={playState}>
+        <BaseAnimation
+          ref={(el: HTMLDivElement) => (animations.current[0] = el)}
+        >
           <CTAImage
             src="/comparativo_img_CTA.png"
             width={520}
             height={480}
             alt=""
           />
-        </BackInLeft>
+        </BaseAnimation>
       </CTAImageContainer>
 
       <CallWrapper>
         <TextContainer>
           <Title>
-            <BackInRight $delay={`${delay}s`} $playState={playState}>
+            <BaseAnimation
+              ref={(el: HTMLDivElement) => (animations.current[1] = el)}
+            >
               Pronto para triplicar sua <br />
               <span>Geração de Leads?</span>
-            </BackInRight>
+            </BaseAnimation>
           </Title>
           <SubTitle>
-            <BackInRight $delay={`${delay}s`} $playState={playState}>
+            <BaseAnimation
+              ref={(el: HTMLDivElement) => (animations.current[2] = el)}
+            >
               Criação e ativação em <b>4 minutos</b>
-            </BackInRight>
+            </BaseAnimation>
           </SubTitle>
         </TextContainer>
 
-        <FadeIn $delay={`${delay}s`} $playState={playState}>
+        <BaseAnimation
+          ref={(el: HTMLDivElement) => (animations.current[3] = el)}
+        >
           <Divider $width="75%" $mt="0rem" $mb="1rem" />
-        </FadeIn>
+        </BaseAnimation>
 
-        <BackInRight $delay={`${delay}s`} $playState={playState}>
+        <BaseAnimation
+          ref={(el: HTMLDivElement) => (animations.current[4] = el)}
+        >
           <CallContainer>
             <CallButton $bg={theme.palette.primary.main} $color="white">
               Ver Demonstração
@@ -101,7 +161,7 @@ const Index = () => {
               </span>
             </div>
           </InfoContainer>
-        </BackInRight>
+        </BaseAnimation>
       </CallWrapper>
     </BannerContainer>
   );

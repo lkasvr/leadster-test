@@ -1,5 +1,5 @@
 'use client';
-import { Fragment, useMemo, useState } from 'react';
+import { Fragment, useEffect, useRef, useMemo, useState } from 'react';
 
 import Image from 'next/image';
 
@@ -20,12 +20,14 @@ import Main, {
   MaterialWithVideo,
 } from './styles';
 
+import { FadeIn } from '@/animations';
+import BaseAnimation from '@/animations/styles';
+import { animateBase } from '@/animations/utils/animationBase';
 import VideoPlayer from '@/components/VideoPlayer';
 import Button from '@/elements/Button';
 import Divider from '@/elements/Divider';
 import Modal from '@/elements/Modal';
 import Wrapper from '@/elements/Wrapper';
-import { FadeIn } from '@/styles/animations/index';
 import { CloudDownloadSVG } from '@/styles/icons/SVG';
 import { useTheme } from 'styled-components';
 
@@ -45,6 +47,8 @@ const pageSize = 9;
 const Index = () => {
   const theme = useTheme();
 
+  const ref = useRef<HTMLDivElement>(null);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [currentTab, setCurrentTab] = useState<string>('Geração de Leads');
 
@@ -58,6 +62,8 @@ const Index = () => {
     const lastPageIndex = firstPageIndex + pageSize;
     return videoMockup.slice(firstPageIndex, lastPageIndex);
   }, [currentPage]);
+
+  useEffect(() => animateBase(ref.current, { delay: 1000 * 3.2 }, FadeIn), []);
 
   const toggleModal = () => {
     setOpacity(0);
@@ -76,7 +82,7 @@ const Index = () => {
   };
 
   return (
-    <FadeIn $delay="3.2s">
+    <BaseAnimation ref={ref}>
       <Main>
         <HeaderElement>
           <Wrapper
@@ -258,7 +264,7 @@ const Index = () => {
           </ContentVideoContainer>
         </Modal>
       </Main>
-    </FadeIn>
+    </BaseAnimation>
   );
 };
 
