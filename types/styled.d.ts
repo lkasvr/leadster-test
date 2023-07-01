@@ -6,6 +6,13 @@ type colors = {
   dark: string;
 };
 
+type breakpoints = {
+  sm: string;
+  md: string;
+  lg: string;
+  xl: string;
+};
+
 declare module 'styled-components' {
   export interface DefaultTheme {
     bg: string;
@@ -16,6 +23,10 @@ declare module 'styled-components' {
       black: colors;
       yellow: colors;
       green: colors;
+    };
+    breakpoints: {
+      max: breakpoints;
+      min: breakpoints;
     };
   }
 }

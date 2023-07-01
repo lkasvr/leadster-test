@@ -10,6 +10,21 @@ const Banner = styled.section`
   justify-content: center;
   align-items: center;
   gap: 0.25rem;
+
+  @media ${({ theme }) => theme.breakpoints.max.lg} {
+    padding: 0rem;
+
+    > hr {
+      width: 86%;
+    }
+  }
+
+  @media ${({ theme }) => theme.breakpoints.min.lg} and ${({ theme }) =>
+      theme.breakpoints.max.xl} {
+    > hr {
+      width: 75%;
+    }
+  }
 `;
 
 export const Tag = styled.span`
@@ -47,15 +62,38 @@ export const Title = styled.h1`
     margin-top: 0.5rem;
     margin-left: -2rem;
   }
+
+  @media ${({ theme }) => theme.breakpoints.max.sm} {
+    font-size: 2.5rem;
+
+    > img {
+      width: 1.5rem;
+      height: 1rem;
+      position: absolute;
+      margin-top: 0.1rem;
+      margin-left: -1rem;
+    }
+  }
 `;
 
 export const SubTitle = styled.span`
   font-size: 3rem;
   color: ${({ theme }) => theme.palette.black.light};
+
+  @media ${({ theme }) => theme.breakpoints.max.sm} {
+    font-size: 1.8rem;
+  }
 `;
 
 export const CatchPhrase = styled.p`
   font-size: 1.25rem;
+
+  @media ${({ theme }) => theme.breakpoints.max.md} {
+    font-size: 0.9rem;
+
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 `;
 
 export default Banner;

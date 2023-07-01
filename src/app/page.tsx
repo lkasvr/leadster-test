@@ -46,10 +46,18 @@ const theme = {
     },
   },
   breakpoints: {
-    sm: '(min-width: 640px)',
-    md: '(min-width: 768px)',
-    lg: '(min-width: 1024px',
-    xl: '(min-width: 1280px)',
+    max: {
+      sm: '(max-width: 640px)',
+      md: '(max-width: 768px)',
+      lg: '(max-width: 1024px)',
+      xl: '(max-width: 1280px)',
+    },
+    min: {
+      sm: '(min-width: 640px)',
+      md: '(min-width: 768px)',
+      lg: '(min-width: 1024px)',
+      xl: '(min-width: 1280px)',
+    },
   },
 };
 

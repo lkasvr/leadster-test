@@ -11,6 +11,23 @@ const Main = styled.main`
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
+
+  @media ${({ theme }) => theme.breakpoints.max.lg} {
+    margin-top: 2rem;
+
+    > div {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media ${({ theme }) => theme.breakpoints.min.lg} and ${({ theme }) =>
+      theme.breakpoints.max.xl} {
+    > div {
+      width: 100%;
+      justify-content: center;
+    }
+  }
 `;
 
 export const HeaderElement = styled.header`
@@ -19,6 +36,60 @@ export const HeaderElement = styled.header`
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
+
+  @media ${({ theme }) => theme.breakpoints.max.md} {
+    width: 100%;
+    height: 25rem;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+
+    > div {
+      width: 60%;
+      flex-flow: column nowrap;
+      justify-content: center;
+      gap: 1.25rem;
+
+      > button {
+        width: 100%;
+      }
+
+      > label {
+        padding-top: 1rem;
+      }
+
+      > select {
+        padding: 0.75rem;
+        width: 80%;
+      }
+    }
+
+    div + div {
+      gap: 0;
+    }
+
+    > hr {
+      width: 80%;
+    }
+  }
+
+  @media ${({ theme }) => theme.breakpoints.min.md} and ${({ theme }) =>
+      theme.breakpoints.max.xl} {
+    width: 100%;
+    height: 15rem;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+
+    > div {
+      width: 100%;
+      flex-flow: row nowrap;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    > hr {
+      width: 80%;
+    }
+  }
 `;
 
 export const Select = styled.select`
@@ -27,6 +98,10 @@ export const Select = styled.select`
   border-radius: 0.5rem;
   -webkit-border-radius: 0.5rem;
   -moz-border-radius: 0.5rem;
+
+  @media ${({ theme }) => theme.breakpoints.max.lg} {
+    padding: 0.2rem;
+  }
 `;
 
 export const Label = styled.label`
@@ -99,6 +174,10 @@ export const Thumb = styled.article<{ $width: string; $height: string }>`
     -webkit-border-right-radius: 16px;
     -moz-border-left-radius: 16px;
   }
+
+  @media ${({ theme }) => theme.breakpoints.max.xl} {
+    margin-right: 1rem;
+  }
 `;
 
 export const ThumbDesc = styled.p`
@@ -114,11 +193,16 @@ export const VideoTitle = styled.h3`
   width: 100%;
   height: 10%;
   text-align: center;
-  padding: 11% 20% 0 20%;
+  padding: 8% 20% 0 20%;
   font-weight: 600;
 
   > span {
     color: ${({ theme }) => theme.palette.primary.main};
+  }
+
+  @media ${({ theme }) => theme.breakpoints.min.md} and ${({ theme }) =>
+      theme.breakpoints.max.xl} {
+    padding: 5% 20% 0 20%;
   }
 `;
 

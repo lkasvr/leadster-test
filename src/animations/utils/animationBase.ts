@@ -16,22 +16,15 @@ export const animateBase = (
   keyframes: AnimationKeyFrame | AnimationKeyFrame[]
 ) => {
   if (!element) return;
-  const {
-    display,
-    delay,
-    direction,
-    duration,
-    fillMode,
-    iterationCount,
-    playState,
-  } = options;
+  const { delay, direction, duration, fillMode, iterationCount, playState } =
+    options;
 
   element.style.opacity = '0';
 
   const animation = element.animate(keyframes, {
-    duration: duration ? duration : 1000, // Duração da animação em milissegundos
-    delay: delay ? delay : 0, // Atraso antes do início da animação em milissegundos
-    iterations: iterationCount ? iterationCount : 1, // Número de iterações da animação
+    duration: duration ? duration : 1000,
+    delay: delay ? delay : 0,
+    iterations: iterationCount ? iterationCount : 1,
     direction: direction ? direction : 'normal', // Direção da animação ('normal', 'reverse', 'alternate', 'alternate-reverse')
     fill: fillMode ? fillMode : 'both', // Comportamento de preenchimento da animação ('none', 'forwards', 'backwards', 'both')
     easing: 'ease', // Função de temporização da animação ('linear', 'ease', 'ease-in', 'ease-out', 'ease-in-out')

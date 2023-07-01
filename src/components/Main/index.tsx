@@ -41,8 +41,6 @@ type DataVideo = {
   files: { name: string }[];
 };
 
-const pageSize = 9;
-
 const Index = () => {
   const theme = useTheme();
 
@@ -50,6 +48,7 @@ const Index = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [currentTab, setCurrentTab] = useState<string>('Geração de Leads');
+  const [pageSize, setPageSize] = useState(9);
 
   const [isOpen, setIsOpen] = useState(false);
   const [opacity, setOpacity] = useState(0);
@@ -60,7 +59,14 @@ const Index = () => {
     const firstPageIndex = (currentPage - 1) * pageSize;
     const lastPageIndex = firstPageIndex + pageSize;
     return videoMockup.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage]);
+  }, [currentPage, pageSize]);
+
+  useEffect(() => {
+    const { innerWidth } = window;
+    if (innerWidth <= 1024) {
+      setPageSize(6);
+    } else setPageSize(9);
+  }, []);
 
   useEffect(() => animateBase(ref.current, { delay: 1000 * 3.2 }, FadeIn), []);
 

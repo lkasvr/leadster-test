@@ -71,7 +71,7 @@ const Index = () => {
         />
       </Title>
 
-      <Divider ref={dividerRef} $width="40%" $mt="0.5rem" $mb="0.5rem" />
+      <Divider ref={dividerRef} $width="50%" $mt="0.5rem" $mb="0.5rem" />
 
       <CatchPhrase ref={catchPhraseRef}>
         Conheça as estratégias que <b>mudaram o jogo</b> e como aplicá-las no

@@ -10,7 +10,7 @@ const Pagination = styled.ul`
   width: 100%;
   list-style-type: none;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
 `;
@@ -77,9 +77,17 @@ export const PaginationItem = styled.li<IPaginationItem>`
 export const Label = styled.span`
   position: absolute;
   margin-bottom: 1.25rem;
-  margin-right: 14rem;
+  margin-right: 20%;
   font-size: 1rem;
   font-weight: 600;
+
+  @media ${({ theme }) => theme.breakpoints.max.md} {
+    display: none;
+  }
+
+  @media (max-width: 1880px) {
+    margin-right: 35%;
+  }
 `;
 
 export const Arrow = styled.div<{ $position: 'left' | 'right' }>`

@@ -35,7 +35,7 @@ const Index = () => {
 
   const visible = useOnScreen(ref);
   const [playState, setPlayState] = useState<'paused' | 'running'>('paused');
-  const [delay] = useState<number>(2);
+  const [delay] = useState<number>(1000);
 
   useEffect(() => {
     if (visible) setPlayState('running');
@@ -46,18 +46,20 @@ const Index = () => {
     const animationData = [
       {
         ref: imageContainer,
-        animation: BackInRight,
-        options: {
-          playState,
-          delay,
-        },
-      },
-      {
-        ref: callWrapper,
         animation: BackInLeft,
         options: {
           playState,
           delay,
+          duration: 2000,
+        },
+      },
+      {
+        ref: callWrapper,
+        animation: BackInRight,
+        options: {
+          playState,
+          delay,
+          duration: 2000,
         },
       },
       {
