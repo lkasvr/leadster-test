@@ -23,7 +23,8 @@ const BannerContainer = styled.section`
     padding: 0.75rem;
   }
 
-  @media ${({ theme }) => theme.breakpoints.max.xl} {
+  @media ${({ theme }) => theme.breakpoints.min.lg} and ${({ theme }) =>
+    theme.breakpoints.max.xl} {
     height: 80vh;
   }
 `;
@@ -125,6 +126,13 @@ export const CallContainer = styled.article`
   align-items: center;
   margin-bottom: 1rem;
   gap: 1rem;
+
+  @media ${({ theme }) => theme.breakpoints.max.sm} {
+    > button {
+      padding: 0.25rem;
+      font-size: 1rem;
+    }
+  }
 
   @media ${({ theme }) => theme.breakpoints.max.lg} {
     justify-content: center;
