@@ -51,8 +51,6 @@ Teste Leadster: Construção de uma <b>Landing Page</b> para processo seletivo
 
 ## Instruções de Execução do Projeto
 
-#
-
 ### **AMBIENTE DE DESENVOLVIMENTO**
 
 Primeiro, clone este reposiótio:
