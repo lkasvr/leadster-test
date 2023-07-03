@@ -105,11 +105,11 @@ docker run -d -p [3000:3000] lkasvr/leadster-test:latest
 
 </br>
 
-#
-
 ## Padrão de Commit's
 
 `git commit -m "[título] - [categorias de edição[...]] - [descrição sucinta das alterações]"`
+
+</br>
 
 ### Regras de padronização
 1. Máximo de 3 categorias de edição por commit
