@@ -26,11 +26,11 @@ Teste Leadster: Construção de uma <b>Landing Page</b> para processo seletivo
 
 - Distinção entre Componentes e Elementos
 
-📌 **Processo de tomada da decisão**: optei por realizar uma organização mais abstraída na distinção de Componentes e Elementos, visando a reutilização dos elementos e a escalabilidade na da aplicação futuramente
+  📌 **Processo de tomada da decisão**: optei por realizar uma organização mais abstraída na distinção de Componentes e Elementos, visando a reutilização dos elementos e a escalabilidade na da aplicação futuramente
 
 - Uso de hooks personalizados
 
-📌 **Processo de tomada da decisão**: os hooks personalizados demonstram uma boa organização de código pois consigo realizar muitas funcionalidades sem poluir meus componentes, e por isso tomei a decisão de utilizá-los nas features que exigiam certa grande quantidade de código ou otimização
+  📌 **Processo de tomada da decisão**: os hooks personalizados demonstram uma boa organização de código pois consigo realizar muitas funcionalidades sem poluir meus componentes, e por isso tomei a decisão de utilizá-los nas features que exigiam certa grande quantidade de código ou otimização
 
 </br>
 
@@ -85,7 +85,7 @@ npm run start
 </br>
 
 ### **DOCKER CONTAINER**
-<font color="red">**ATENÇÃO**: para este passo certifique-se de ter o **Docker** instalado em sua máquina! </font>
+<span style="color: red">**ATENÇÃO**: para este passo certifique-se de ter o **Docker** instalado em sua máquina! </span>
 </br>
 </br>
 Para facilitar, já deixei uma imagem docker (pública) no **Docker Hub** que você poderá utilizar na sua máquina para subir um container.
@@ -103,7 +103,7 @@ Agora execute o um container da image:
 docker run -d -p [3000:3000] lkasvr/leadster-test:latest
 ```
 
-<font color="red">**ATENÇÃO**: para este passo certifique-se de realizar o bind de portas, para uma porta disponível na sua máquina **[porta-seu-pc-:porta-container]** </font>
+<span style="color: red">**ATENÇÃO**: para este passo certifique-se de realizar o bind de portas, para uma porta disponível na sua máquina **[porta-seu-pc-:porta-container]** </span>
 
 </br>
 
@@ -122,9 +122,9 @@ docker run -d -p [3000:3000] lkasvr/leadster-test:latest
 6. O motivo ou explicação do item 5, é realizado na descrição do commit
 
 ### Categorias de Edição de Código
-* **Bugf** - Bug fix / correção de bug's
-* **Lay** - Inserção/Edição de layout
-* **Lon** - Inserção/Edição de lógica negocial
-* **Loi** - Inserção/Edição de lógica de interface
-* **CMO** - Edição genérica do código com explicitação obrigatória do motivo/explicação
-* **Ret** - Retificação e aperfeiçoamento ou pequenas e genéricas edições de código sem modificação de lógicas
+* <span style="color: blue">**Bugf**</span> - Bug fix / correção de bug's
+* <span style="color: blue">**Lay**</span> - Inserção/Edição de layout
+* <span style="color: blue">**Lon**</span> - Inserção/Edição de lógica negocial
+* <span style="color: blue">**Loi**</span> - Inserção/Edição de lógica de interface
+* <span style="color: blue">**CMO**</span> - Edição genérica do código com explicitação obrigatória do motivo/explicação
+* <span style="color: blue">**Ret**</span> - Retificação e aperfeiçoamento ou pequenas e genéricas edições de código sem modificação de lógicas
