@@ -96,7 +96,7 @@ Para tanto, é necessário executar os seguintes comandos:
 docker pull lkasvr/leadster-test:latest
 ```
 
-Agora execute o um container da image:
+Agora execute o container da image:
 ```bash
 docker run -d -p [3000:3000] lkasvr/leadster-test:latest
 ```
